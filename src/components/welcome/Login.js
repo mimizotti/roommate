@@ -15,19 +15,23 @@ export default class Login extends Component<{}> {
     return (
       <View style={styles.container}>
         <View style={styles.loginContainer}>
-                    <Image resizeMode="contain" style={styles.logo} />
-         </View>
+          <Image resizeMode="contain" style={styles.logo} />
+        </View>
 
-            <View style={styles.formContainer}>
-                   <LoginForm />
-            </View>
-       </View>
+        <View style={styles.formContainer}>
+          <LoginForm />
+        </View>
+        <View style={styles.loginContainer}>
+          <Text>Don't have an account? Sign up</Text>
+        </View>
+      </View>
     )
   }
 }
 const styles = StyleSheet.create({
   container: {
       flex: 1,
+      marginBottom: 30
   },
   loginContainer:{
       alignItems: 'center',
