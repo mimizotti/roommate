@@ -25,7 +25,6 @@ export default class LoginForm extends Component<{}> {
                            onPress={this._onButtonPress}>
                    <Text  style={styles.buttonText}>LOGIN</Text>
       </TouchableOpacity>
-      </View>
     )
   }
 }
