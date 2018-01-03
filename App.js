@@ -13,27 +13,63 @@ import {
   Text,
   View,
   Image,
-  TextInput
+  TextInput,
+  Button
 } from 'react-native';
 import Logo from './src/components/welcome/Logo'
 import Login from './src/components/welcome/Login'
+import { StackNavigator } from 'react-navigation';
 
-export default class App extends Component<{}> {
+class HomeScreen extends React.Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <Logo />
         <Login />
+        <Button
+          onPress={() => navigate('CreateAccount')}
+          title="Don't have an account? Sign up"
+          color="#fff"
+        />
       </View>
     );
+  }
+}
+
+class CreateAccount extends React.Component {
+  static navigationOptions = {
+    title: 'Create Account',
+  };
+  render() {
+    return (
+      <View>
+        <Text>Chat with Lucy</Text>
+      </View>
+    );
+  }
+}
+
+export const SimpleApp = StackNavigator({
+  Home: { screen: HomeScreen },
+  CreateAccount: { screen: CreateAccount },
+});
+
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <SimpleApp />
+      </View>
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //justifyContent: 'center',
-    //alignItems: 'center',
     backgroundColor: '#00695c',
+    marginBottom: 30,
   },
 });

@@ -21,9 +21,6 @@ export default class Login extends Component<{}> {
         <View style={styles.formContainer}>
           <LoginForm />
         </View>
-        <View style={styles.loginContainer}>
-          <Text>Don't have an account? Sign up</Text>
-        </View>
       </View>
     )
   }
