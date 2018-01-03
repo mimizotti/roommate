@@ -19,6 +19,7 @@ import {
 import Logo from './src/components/welcome/Logo'
 import Login from './src/components/welcome/Login'
 import SignUp from './src/components/create-account/SignUp'
+import SignUpLogo from './src/components/create-account/SignUpLogo'
 import { StackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
@@ -45,6 +46,7 @@ class CreateAccount extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <SignUpLogo />
         <SignUp />
       </View>
     );
