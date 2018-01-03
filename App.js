@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import Logo from './src/components/welcome/Logo'
 import Login from './src/components/welcome/Login'
+import SignUp from './src/components/create-account/SignUp'
 import { StackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
@@ -43,8 +44,8 @@ class CreateAccount extends React.Component {
   };
   render() {
     return (
-      <View>
-        <Text>Chat with Lucy</Text>
+      <View style={styles.container}>
+        <SignUp />
       </View>
     );
   }
