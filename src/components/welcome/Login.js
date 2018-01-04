@@ -28,12 +28,11 @@ export default class Login extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      marginBottom: 30
   },
   loginContainer:{
       alignItems: 'center',
       flexGrow: 1,
-      justifyContent: 'center'
+      justifyContent: 'center',
   }
   //logo: {
       //position: 'absolute',
