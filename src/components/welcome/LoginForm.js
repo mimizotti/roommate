@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
 
 export default class LoginForm extends Component<{}> {
+  constructor(props) {
+    super(props);
+    this.state = {email: null, password: null};
+  }
   render() {
     return (
       <View>

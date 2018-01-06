@@ -12,7 +12,7 @@ export default class Logo extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={{uri: 'https://i.imgur.com/s9iak17.png'}}
+        <Image source={{uri: 'https://i.imgur.com/wErA5G1.png'}}
          style={{width: 400, height: 296, alignSelf: 'center'}} />
       </View>
     );
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#00695c',
-    marginTop: 100
+    marginTop: 20
   },
   welcome: {
     fontSize: 20,

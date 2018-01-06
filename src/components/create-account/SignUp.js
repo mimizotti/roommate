@@ -8,7 +8,7 @@ import {
     StyleSheet,
     Image
 } from 'react-native';
-import LoginForm from './LoginForm'
+import SignUpForm from './SignUpForm'
 
 export default class Login extends Component<{}> {
   render() {
@@ -19,7 +19,7 @@ export default class Login extends Component<{}> {
         </View>
 
         <View style={styles.formContainer}>
-          <LoginForm />
+          <SignUpForm />
         </View>
       </View>
     )
@@ -28,11 +28,12 @@ export default class Login extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
+      marginBottom: 30
   },
   loginContainer:{
       alignItems: 'center',
       flexGrow: 1,
-      justifyContent: 'center',
+      justifyContent: 'center'
   }
   //logo: {
       //position: 'absolute',
