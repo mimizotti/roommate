@@ -21,7 +21,7 @@ export default class Login extends Component<{}> {
           <LoginForm />
         </View>
         <View style={styles.signUpContainer}>
-          <Text onPress={Actions.pageTwo}>Don't have an account? Sign up!</Text>
+          <Text onPress={Actions.register}>Don't have an account? Sign up!</Text>
         </View>
       </View>
     )

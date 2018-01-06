@@ -9,8 +9,8 @@
 import React, { Component } from 'react';
 import { Router, Scene } from 'react-native-router-flux';
 
-import PageOne from './src/components/welcome/Login';
-import PageTwo from './src/components/create-account/SignUp';
+import Login from './src/components/welcome/Login';
+import Register from './src/components/create-account/SignUp';
 import HomePage from './src/components/dashboard/HomePage';
 
 export default class App extends React.Component {
@@ -18,8 +18,8 @@ export default class App extends React.Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="pageOne" component={PageOne} title="PageOne" initial={true} />
-          <Scene key="pageTwo" component={PageTwo} title="PageTwo" />
+          <Scene key="login" component={Login} title="Roomie" initial={true} />
+          <Scene key="register" component={Register} title="Create Account" />
           <Scene key="home" component={HomePage} title="Your Profile" />
         </Scene>
       </Router>

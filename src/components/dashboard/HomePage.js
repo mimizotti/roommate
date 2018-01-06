@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Alert, Image, Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import { AsyncStorage } from 'react-native'
+const async = require('../../helpers/async')
 
 class HomePage extends Component {
 
@@ -8,8 +10,14 @@ class HomePage extends Component {
     Alert.alert('We will print a Chuck Norris quote')
   }
 
-  userLogout() {
-    Actions.Authentication();
+  async userLogout() {
+    try {
+      await AsyncStorage.removeItem('id_token');
+      Alert.alert('Logout Success!');
+      Actions.login();
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
   }
 
   render() {
