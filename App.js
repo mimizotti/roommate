@@ -7,72 +7,21 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button
-} from 'react-native';
-import Logo from './src/components/welcome/Logo'
-import Login from './src/components/welcome/Login'
-import SignUp from './src/components/create-account/SignUp'
-import SignUpLogo from './src/components/create-account/SignUpLogo'
-import { StackNavigator } from 'react-navigation';
+import { Router, Scene } from 'react-native-router-flux';
 
-class HomeScreen extends React.Component {
-  render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <Logo />
-        <Login />
-        <Button
-          onPress={() => navigate('CreateAccount')}
-          title="Don't have an account? Sign up"
-          color="#fff"
-        />
-      </View>
-    );
-  }
-}
-
-class CreateAccount extends React.Component {
-  static navigationOptions = {
-    title: 'Create Account',
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <SignUpLogo />
-        <SignUp />
-      </View>
-    );
-  }
-}
-
-export const SimpleApp = StackNavigator({
-  Home: { screen: HomeScreen },
-  CreateAccount: { screen: CreateAccount },
-});
-
+import PageOne from './src/components/welcome/Login';
+import PageTwo from './src/components/create-account/SignUp';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <SimpleApp />
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="pageOne" component={PageOne} title="PageOne" initial={true} />
+          <Scene key="pageTwo" component={PageTwo} title="PageTwo" />
+        </Scene>
+      </Router>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#00695c',
-    marginBottom: 30,
-  },
-});

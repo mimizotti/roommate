@@ -9,6 +9,7 @@ import {
     Image
 } from 'react-native';
 import LoginForm from './LoginForm'
+import { Actions } from 'react-native-router-flux';
 
 export default class Login extends Component<{}> {
   render() {
@@ -20,6 +21,7 @@ export default class Login extends Component<{}> {
 
         <View style={styles.formContainer}>
           <LoginForm />
+          <Text onPress={Actions.pageTwo}>This is PageOne!</Text>
         </View>
       </View>
     )
