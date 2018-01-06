@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import {Alert, Image, Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import { AsyncStorage } from 'react-native'
-const async = require('../../helpers/async')
+import { AsyncStorage } from 'react-native';
+import getCurrentUser from '../../data/users/me'
 
 class HomePage extends Component {
-
-  getProtectedQuote() {
-    Alert.alert('We will print a Chuck Norris quote')
+  constructor(props) {
+    super(props);
+    this.state = {
+        name: ''
+    };
+  }
+  componentDidMount(){
+    this.getToken()
   }
 
   async userLogout() {
@@ -20,14 +25,42 @@ class HomePage extends Component {
     }
   }
 
+  async getToken() {
+    try {
+      const value = await AsyncStorage.getItem('id_token');
+      if (value !== null){
+        this.getCurrentUser(value)
+      }
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
+  }
+
+  getCurrentUser(token) {
+    var self = this;
+    return fetch('https://salty-sea-38186.herokuapp.com/api/auth/me', {
+      method: 'get',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-access-token': token,
+      },
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      self.setState({
+              name: responseJson.name
+          });
+    })
+    .catch((error) => {
+      alert(error)
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-
-        <TouchableOpacity style={styles.buttonWrapper} onPress={this.getProtectedQuote}>
-          <Text style={styles.buttonText}> Get Chuck Norris quote! </Text>
-        </TouchableOpacity>
-
+      <Text>Hello {this.state.name}!</Text>
         <TouchableOpacity style={styles.buttonWrapper} onPress={this.userLogout}>
           <Text style={styles.buttonText} > Log out </Text>
         </TouchableOpacity>
