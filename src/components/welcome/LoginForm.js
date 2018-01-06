@@ -1,34 +1,40 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
-
+import loginUser from '../../../src/data/users/login'
 export default class LoginForm extends Component<{}> {
   constructor(props) {
-    super(props);
-    this.state = {email: null, password: null};
+    super(props)
+    this.state = { email: '' }
+    this.state = { password: '' }
   }
   render() {
     return (
       <View>
-      <TextInput style = {styles.input}
-               autoCapitalize="none"
-               onSubmitEditing={() => this.passwordInput.focus()}
-               autoCorrect={false}
-               keyboardType='email-address'
-               returnKeyType="next"
-               placeholder='Email'
-               placeholderTextColor='rgba(225,225,225,0.7)'/>
+        <TextInput style = {styles.input}
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType='email-address'
+          returnKeyType="next"
+          placeholder='Email'
+          onChangeText={email => this.setState({ email })}
+          value={this.state.email}
+          placeholderTextColor='rgba(225,225,225,0.7)'
+        />
 
-      <TextInput style = {styles.input}
-                    returnKeyType="go"
-                    ref={(input)=> this.passwordInput = input}
-                    placeholder='Password'
-                    placeholderTextColor='rgba(225,225,225,0.7)'
-                    secureTextEntry/>
+       <TextInput style = {styles.input}
+          returnKeyType="go"
+          placeholder='Password'
+          onChangeText={password => this.setState({ password })}
+          value={this.state.password}
+          placeholderTextColor='rgba(225,225,225,0.7)'
+          secureTextEntry
+        />
 
-      <TouchableOpacity style={styles.buttonContainer}
-                           onPress={this._onButtonPress}>
-                   <Text  style={styles.buttonText}>LOGIN</Text>
-      </TouchableOpacity>
+       <TouchableOpacity style={styles.buttonContainer}
+          onPress={() => loginUser(this.state.email, this.state.password)}
+          >
+          <Text  style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
       </View>
     )
   }
