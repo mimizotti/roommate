@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#00695c',
-    marginTop: 100
   },
   welcome: {
     fontSize: 20,

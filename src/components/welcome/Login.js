@@ -9,19 +9,19 @@ import {
     Image
 } from 'react-native';
 import LoginForm from './LoginForm'
+import Logo from './Logo'
 import { Actions } from 'react-native-router-flux';
 
 export default class Login extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.loginContainer}>
-          <Image resizeMode="contain" style={styles.logo} />
-        </View>
-
+        <Logo />
         <View style={styles.formContainer}>
           <LoginForm />
-          <Text onPress={Actions.pageTwo}>This is PageOne!</Text>
+        </View>
+        <View style={styles.signUpContainer}>
+          <Text onPress={Actions.pageTwo}>Don't have an account? Sign up!</Text>
         </View>
       </View>
     )
@@ -30,10 +30,11 @@ export default class Login extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
+      backgroundColor: '#00695c',
   },
-  loginContainer:{
-      alignItems: 'center',
-      flexGrow: 1,
-      justifyContent: 'center',
+  signUpContainer: {
+    marginTop: 10,
+    marginBottom: 100,
+    alignItems: 'center',
   }
 })
