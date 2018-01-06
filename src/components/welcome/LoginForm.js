@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
-import loginUser from '../../../src/data/users/login'
+import {Actions} from 'react-native-router-flux';
+import Login from '../../../src/data/users/login'
+
 export default class LoginForm extends Component<{}> {
   constructor(props) {
     super(props)
@@ -31,7 +33,7 @@ export default class LoginForm extends Component<{}> {
         />
 
        <TouchableOpacity style={styles.buttonContainer}
-          onPress={() => loginUser(this.state.email, this.state.password)}
+          onPress={() => Login.loginUser(this.state.email, this.state.password)}
           >
           <Text  style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>

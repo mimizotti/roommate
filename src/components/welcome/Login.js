@@ -34,9 +34,4 @@ const styles = StyleSheet.create({
       flexGrow: 1,
       justifyContent: 'center',
   }
-  //logo: {
-      //position: 'absolute',
-      //width: 300,
-      //height: 100
-  //}
 })
