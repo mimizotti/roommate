@@ -11,6 +11,7 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import PageOne from './src/components/welcome/Login';
 import PageTwo from './src/components/create-account/SignUp';
+import HomePage from './src/components/dashboard/HomePage';
 
 export default class App extends React.Component {
   render() {
@@ -19,6 +20,7 @@ export default class App extends React.Component {
         <Scene key="root">
           <Scene key="pageOne" component={PageOne} title="PageOne" initial={true} />
           <Scene key="pageTwo" component={PageTwo} title="PageTwo" />
+          <Scene key="home" component={HomePage} title="Your Profile" />
         </Scene>
       </Router>
     )

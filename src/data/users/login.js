@@ -19,7 +19,7 @@ class Login extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
       saveItem('id_token', responseJson.token),
-      Actions.home
+      Actions.home()
     })
     .catch((error) => {
       alert(error)
