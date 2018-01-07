@@ -14,8 +14,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
 import LoginForm from './LoginForm'
 import Logo from './Logo'
-import HomePage from '../dashboard/HomePage'
+import LoggedInWithFacebook from '../dashboard/HomePage2'
 import { Actions } from 'react-native-router-flux';
+import saveItem from '../../helpers/async'
 
 export default class Login extends Component<{}> {
   state = {
@@ -61,8 +62,9 @@ export default class Login extends Component<{}> {
 
   render() {
     if (this.state.user) {
+      const { user } = this.state;
       return (
-        <HomePage />
+        <LoggedInWithFacebook user={user} />
       )
     } else {
       return (
