@@ -19,14 +19,11 @@ import { Actions } from 'react-native-router-flux';
 
 export default class Login extends Component<{}> {
   state = {
-    user: undefined, // user has not logged in yet
+    user: undefined,
   };
 
-    // Set up Linking
   componentDidMount() {
-    // Add event listener to handle OAuthLogin:// URLs
     Linking.addEventListener('url', this.handleOpenURL);
-    // Launched from an external URL
     Linking.getInitialURL().then((url) => {
       if (url) {
         this.handleOpenURL({ url });
@@ -35,15 +32,12 @@ export default class Login extends Component<{}> {
   };
 
   componentWillUnmount() {
-    // Remove event listener
     Linking.removeEventListener('url', this.handleOpenURL);
   };
 
   handleOpenURL = ({ url }) => {
-    // Extract stringified user string out of the URL
     const [, user_string] = url.match(/user=([^#]+)/);
     this.setState({
-      // Decode the user string and parse it into JSON
       user: JSON.parse(decodeURI(user_string))
     })
     if (Platform.OS === 'ios') {
@@ -51,19 +45,15 @@ export default class Login extends Component<{}> {
     }
   };
 
-  // Handle Login with Facebook button tap
   loginWithFacebook = () => this.openURL('http://localhost:3000/auth/facebook');
 
-  // Open URL in a browser
   openURL = (url) => {
-    // Use SafariView on iOS
     if (Platform.OS === 'ios') {
       SafariView.show({
         url: url,
         fromBottom: true,
       });
     }
-    // Or Linking.openURL on Android
     else {
       Linking.openURL(url);
     }
