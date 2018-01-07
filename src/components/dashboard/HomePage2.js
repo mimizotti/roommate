@@ -15,7 +15,7 @@ class HomePage2 extends Component {
 
   getProfilePhoto() {
     var self = this;
-    return fetch(`https://graph.facebook.com/v2.11/${this.props.user.facebook_id}/picture?width=300&redirect=false&type=square`, {
+    return fetch(`https://graph.facebook.com/v2.11/${this.props.user.facebook_id}/picture?width=400&redirect=false&type=square`, {
       headers: {
         method: 'get',
         Accept: 'application/json',
@@ -42,7 +42,7 @@ class HomePage2 extends Component {
       <View style={styles.container}>
       <Text style={styles.header}>Hello, {this.props.user.name}</Text>
       <Image
-          style={{width: 300, height: 300}}
+          style={{width: null, height: 400}}
           source={{uri: this.state.profilePhoto}}
         />
         <TouchableOpacity onPress={this.userLogout}>
@@ -57,7 +57,7 @@ export default HomePage2;
 
 const styles = StyleSheet.create({
     container: {
-     padding: 20
+     //padding: 20
     },
     header:{
       fontSize: 25,
