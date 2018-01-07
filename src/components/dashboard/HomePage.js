@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Alert, Image, Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
-import getCurrentUser from '../../data/users/me'
 
 class HomePage extends Component {
   constructor(props) {
@@ -49,8 +48,8 @@ class HomePage extends Component {
     .then((response) => response.json())
     .then((responseJson) => {
       self.setState({
-              name: responseJson.name
-          });
+        name: responseJson.name
+      });
     })
     .catch((error) => {
       alert(error)
@@ -60,9 +59,9 @@ class HomePage extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text>Hello {this.state.name}!</Text>
-        <TouchableOpacity style={styles.buttonWrapper} onPress={this.userLogout}>
-          <Text style={styles.buttonText} > Log out </Text>
+      <Text style={styles.header}>Hello, {this.state.name}</Text>
+        <TouchableOpacity onPress={this.userLogout}>
+          <Text> Logout </Text>
         </TouchableOpacity>
       </View>
     );
@@ -75,26 +74,8 @@ const styles = StyleSheet.create({
     container: {
      padding: 20
     },
-    input:{
-        height: 40,
-        backgroundColor: 'rgba(225,225,225,0.3)',
-        marginBottom: 10,
-        marginRight: 40,
-        marginLeft: 40,
-        padding: 10,
-        color: '#fff',
-        borderRadius:10
-    },
-    buttonWrapper:{
-        backgroundColor: '#003d33',
-        paddingVertical: 15,
-        borderRadius: 10,
-        marginRight: 40,
-        marginLeft: 40
-    },
-    buttonText:{
-        color: '#fff',
-        textAlign: 'center',
-        fontWeight: '700'
+    header:{
+      fontSize: 25,
+      fontFamily: 'Verdana-Bold'
     }
 })
