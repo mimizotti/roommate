@@ -9,16 +9,14 @@ import {
     Image
 } from 'react-native';
 import SignUpForm from './SignUpForm'
+import SignUpLogo from './SignUpLogo'
 
 export default class Login extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
+        <SignUpLogo />
         <View style={styles.loginContainer}>
-          <Image resizeMode="contain" style={styles.logo} />
-        </View>
-
-        <View style={styles.formContainer}>
           <SignUpForm />
         </View>
       </View>
@@ -27,17 +25,10 @@ export default class Login extends Component<{}> {
 }
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      marginBottom: 30
+    flex: 1,
+    backgroundColor: '#00695c',
   },
   loginContainer:{
-      alignItems: 'center',
-      flexGrow: 1,
-      justifyContent: 'center'
+    marginBottom: 100,
   }
-  //logo: {
-      //position: 'absolute',
-      //width: 300,
-      //height: 100
-  //}
 })

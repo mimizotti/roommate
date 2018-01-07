@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
-import registerUser from '../../../src/data/users/api'
+import registerUser from '../../../src/data/users/register'
 export default class SignUpForm extends Component<{}> {
   constructor(props){
     super(props);
