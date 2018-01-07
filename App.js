@@ -11,7 +11,7 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import Login from './src/components/welcome/Login';
 import Register from './src/components/create-account/SignUp';
-import HomePage from './src/components/dashboard/HomePage';
+import HomePage from './src/components/dashboard/HomePage2';
 
 export default class App extends React.Component {
   render() {

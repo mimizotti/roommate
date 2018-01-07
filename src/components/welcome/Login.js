@@ -19,10 +19,6 @@ import { Actions } from 'react-native-router-flux';
 import saveItem from '../../helpers/async'
 
 export default class Login extends Component<{}> {
-  state = {
-    user: undefined,
-  };
-
   componentDidMount() {
     Linking.addEventListener('url', this.handleOpenURL);
     Linking.getInitialURL().then((url) => {
@@ -38,9 +34,9 @@ export default class Login extends Component<{}> {
 
   handleOpenURL = ({ url }) => {
     const [, user_string] = url.match(/user=([^#]+)/);
-    this.setState({
-      user: JSON.parse(decodeURI(user_string))
-    })
+    const user = JSON.parse(decodeURI(user_string))
+    saveItem('id_token', user)
+    Actions.home()
     if (Platform.OS === 'ios') {
       SafariView.dismiss();
     }
@@ -61,34 +57,27 @@ export default class Login extends Component<{}> {
   };
 
   render() {
-    if (this.state.user) {
-      const { user } = this.state;
-      return (
-        <AboutMe user={user} />
-      )
-    } else {
-      return (
-        <View style={styles.container}>
-          <Logo />
-          <View style={styles.formContainer}>
-            <LoginForm />
-          </View>
-          <View style={styles.signUpContainer}>
-            <Text onPress={Actions.register}>Don't have an account? Sign up!</Text>
-          </View>
-          <View style={styles.buttons}>
-            <Icon.Button
-              name="facebook"
-              backgroundColor="#3b5998"
-              onPress={this.loginWithFacebook}
-              {...iconStyles}
-            >
-              Login with Facebook
-            </Icon.Button>
-          </View>
+    return (
+      <View style={styles.container}>
+        <Logo />
+        <View style={styles.formContainer}>
+          <LoginForm />
         </View>
-      )
-    }
+        <View style={styles.signUpContainer}>
+          <Text onPress={Actions.register}>Don't have an account? Sign up!</Text>
+        </View>
+        <View style={styles.buttons}>
+          <Icon.Button
+            name="facebook"
+            backgroundColor="#3b5998"
+            onPress={this.loginWithFacebook}
+            {...iconStyles}
+          >
+            Login with Facebook
+          </Icon.Button>
+        </View>
+      </View>
+    )
   }
 }
 
