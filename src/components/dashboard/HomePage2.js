@@ -40,14 +40,16 @@ class HomePage2 extends Component {
   render() {
     return(
       <View style={styles.container}>
-      <Text style={styles.header}>Hello, {this.props.user.name}</Text>
-      <Image
-          style={{width: null, height: 400}}
-          source={{uri: this.state.profilePhoto}}
-        />
-        <TouchableOpacity onPress={this.userLogout}>
-          <Text> Logout </Text>
-        </TouchableOpacity>
+        <Image
+            style={{width: null, height: 400}}
+            source={{uri: this.state.profilePhoto}}
+          />
+        <View style={styles.body}>
+          <Text style={styles.header}>{this.props.user.name}</Text>
+          <TouchableOpacity onPress={this.userLogout}>
+            <Text> Logout </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }
@@ -56,11 +58,14 @@ class HomePage2 extends Component {
 export default HomePage2;
 
 const styles = StyleSheet.create({
-    container: {
-     //padding: 20
-    },
-    header:{
-      fontSize: 25,
-      fontFamily: 'Verdana-Bold'
-    }
+  container: {
+    backgroundColor: '#fff',
+  },
+  body: {
+    padding: 10
+  },
+  header:{
+    fontSize: 25,
+    fontFamily: 'Verdana-Bold',
+  }
 })

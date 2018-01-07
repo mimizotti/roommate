@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
 import LoginForm from './LoginForm'
 import Logo from './Logo'
-import LoggedInWithFacebook from '../dashboard/HomePage2'
+import AboutMe from '../dashboard/AboutMe'
 import { Actions } from 'react-native-router-flux';
 import saveItem from '../../helpers/async'
 
@@ -46,7 +46,7 @@ export default class Login extends Component<{}> {
     }
   };
 
-  loginWithFacebook = () => this.openURL('http://localhost:3000/auth/facebook');
+  loginWithFacebook = () => this.openURL('https://salty-sea-38186.herokuapp.com/auth/facebook');
 
   openURL = (url) => {
     if (Platform.OS === 'ios') {
@@ -64,7 +64,7 @@ export default class Login extends Component<{}> {
     if (this.state.user) {
       const { user } = this.state;
       return (
-        <LoggedInWithFacebook user={user} />
+        <AboutMe user={user} />
       )
     } else {
       return (
@@ -104,13 +104,13 @@ const styles = StyleSheet.create({
   },
   signUpContainer: {
     marginTop: 10,
-    marginBottom: 100,
+    marginBottom: 10,
     alignItems: 'center',
   },
   buttons: {
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     flexDirection: 'row',
     margin: 20,
-    marginBottom: 30,
+    marginBottom: 80,
   },
 })
