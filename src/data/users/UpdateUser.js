@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import {Actions} from 'react-native-router-flux'
 
 class UpdateUser extends Component {
-  static aboutMe = (bio, location, occupation, profilePhoto, id) => {
-    return fetch(`https://salty-sea-38186.herokuapp.com/users/${id}`, {
+  static profile = (data, id) => {
+    return fetch('https://salty-sea-38186.herokuapp.com/users/' + id, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        about: bio,
-        location: location,
-        occupation: occupation,
-        picture: profilePhoto
+        'Content-Type': 'application/json',
+        'Data': JSON.stringify(data)
+        },
       })
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
+    .then((incoming) => incoming.json())
+    .then((response) => {
+      alert("Your profile is now up-to-date!")
       Actions.home()
     })
     .catch((error) => {
@@ -26,5 +22,6 @@ class UpdateUser extends Component {
     .done();
   }
 }
+
 
 export default UpdateUser;

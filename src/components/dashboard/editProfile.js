@@ -6,7 +6,8 @@ export default class Bio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bio: ''
+      location: '',
+      occupation: ''
     }
   }
   render() {
@@ -23,17 +24,26 @@ export default class Bio extends Component {
             source={{uri: this.props.profilePhoto}}
               resizeMode="cover"
           />
-      <Text style = {styles.question}>Tell us about yourself:</Text>
+      <Text style = {styles.question}>What city and state are you looking to move to?</Text>
       <View style = {styles.input}>
        <TextInput
          multiline = {true}
          numberOfLines = {4}
-         onChangeText={(bio) => this.setState({bio})}
-         value={this.state.bio}
+         onChangeText={(location) => this.setState({location})}
+         value={this.state.location}
+       />
+      </View>
+      <Text style = {styles.question}>What is your current occupation?</Text>
+      <View style = {styles.input}>
+       <TextInput
+         multiline = {true}
+         numberOfLines = {4}
+         onChangeText={(occupation) => this.setState({occupation})}
+         value={this.state.occupation}
        />
       </View>
        <TouchableOpacity style={styles.buttonContainer}
-          onPress={() => UpdateUser.profile({about: this.state.bio, picture: this.props.profilePhoto}, this.props.id)}
+          onPress={() => UpdateUser.profile({location: this.state.location, occupation: this.state.occupation}, this.props.id)}
           >
           <Text  style={styles.buttonText}>SUBMIT</Text>
         </TouchableOpacity>

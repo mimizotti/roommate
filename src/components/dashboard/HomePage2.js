@@ -95,6 +95,7 @@ class HomePage2 extends Component {
   }
   render() {
     const goToBio = () => Actions.bio({id: this.state.id, profilePhoto: this.state.profilePhoto});
+    const editProfile = () => Actions.editProfile({id: this.state.id, profilePhoto: this.state.profilePhoto});
     return(
       <View style={styles.container}>
         <Image
@@ -105,13 +106,20 @@ class HomePage2 extends Component {
           <Text style={styles.header}>{this.state.name}</Text>
           <View style={styles.subBody}>
             <Text style={styles.about}>Bio</Text>
-            {this.state.about !== '' ? (
+              <Text>{this.state.about}</Text>
               <Text
                 style={styles.link}
-                onPress={goToBio}>Click here to update your bio.</Text>
-            ) : (
-              <Text>{this.state.about}</Text>
-            )}
+                onPress={goToBio}>Click here to update your bio.
+              </Text>
+          </View>
+          <View style={styles.subBody}>
+            <View style={{flexDirection:'row', flexWrap:'wrap'}}>
+              <Text style={styles.about}>I'm looking to live in: {this.state.location}</Text>
+              <Text
+                style={styles.link}
+                onPress={editProfile}>(Edit)
+              </Text>
+            </View>
           </View>
         </View>
         <View>
