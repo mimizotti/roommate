@@ -21,6 +21,25 @@ class UpdateUser extends Component {
     })
     .done();
   }
+
+  static lifestyle = (data, id) => {
+    return fetch('https://salty-sea-38186.herokuapp.com/users/' + id, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Data': JSON.stringify(data)
+        },
+      })
+    .then((incoming) => incoming.json())
+    .then((response) => {
+      Actions.home()
+    })
+    .catch((error) => {
+      alert(error)
+    })
+    .done();
+  }
 }
 
 

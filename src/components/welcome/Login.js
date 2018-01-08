@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
 import LoginForm from './LoginForm'
 import Logo from './Logo'
-import AboutMe from '../dashboard/AboutMe'
 import { Actions } from 'react-native-router-flux';
 import saveItem from '../../helpers/async'
 
