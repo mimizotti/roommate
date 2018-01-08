@@ -60,8 +60,10 @@ class HomePage extends Component {
     return (
       <View style={styles.container}>
       <Text style={styles.header}>Hello, {this.state.name}</Text>
-        <TouchableOpacity onPress={this.userLogout}>
-          <Text> Logout </Text>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={this.userLogout}>
+          <Text style={styles.buttonText}>Logout</Text>
         </TouchableOpacity>
       </View>
     );
@@ -71,11 +73,23 @@ class HomePage extends Component {
 export default HomePage;
 
 const styles = StyleSheet.create({
-    container: {
-     padding: 20
-    },
-    header:{
-      fontSize: 25,
-      fontFamily: 'Verdana-Bold'
-    }
+  container: {
+   padding: 20
+  },
+  header:{
+    fontSize: 25,
+    fontFamily: 'Verdana-Bold'
+  },
+  buttonText:{
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '700',
+  },
+  buttonContainer:{
+    backgroundColor: '#003d33',
+    paddingVertical: 15,
+    borderRadius: 10,
+    marginLeft: 210,
+    marginTop: 20
+  },
 })
