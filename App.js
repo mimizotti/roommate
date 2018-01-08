@@ -12,6 +12,7 @@ import { Router, Scene } from 'react-native-router-flux';
 import Login from './src/components/welcome/Login';
 import Register from './src/components/create-account/SignUp';
 import HomePage from './src/components/dashboard/HomePage2';
+import Bio from './src/components/dashboard/UpdateBio';
 
 export default class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ export default class App extends React.Component {
           <Scene key="login" component={Login} title="Roomie" initial={true} />
           <Scene key="register" component={Register} title="Create Account" />
           <Scene key="home" component={HomePage} title="Your Profile" />
+          <Scene key="bio" component={Bio} title="Update Your Bio" />
         </Scene>
       </Router>
     )

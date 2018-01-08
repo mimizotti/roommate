@@ -94,6 +94,7 @@ class HomePage2 extends Component {
     }
   }
   render() {
+    const goToBio = () => Actions.bio({id: this.state.id, profilePhoto: this.state.profilePhoto});
     return(
       <View style={styles.container}>
         <Image
@@ -107,7 +108,7 @@ class HomePage2 extends Component {
             {this.state.about !== '' ? (
               <Text
                 style={styles.link}
-                onPress={Actions.login}>Click here to update your bio.</Text>
+                onPress={goToBio}>Click here to update your bio.</Text>
             ) : (
               <Text>{this.state.about}</Text>
             )}
