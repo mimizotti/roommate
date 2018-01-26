@@ -1,3 +1,5 @@
+<img src="https://i.imgur.com/GrEJpeI.png">
+
 # Roomie
 
 Roomie is a social search mobile app that allows you to find a roommate. Users can create an account, log in, answer a series of personality/lifestyle questions, and see a list of compatible matches.
